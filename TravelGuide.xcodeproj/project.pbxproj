@@ -51,10 +51,14 @@
 		6F4A568B2BE1AACB00E1CC28 /* TravelGuide */ = {
 			isa = PBXGroup;
 			children = (
+				6F4A569A2BE1AE3100E1CC28 /* Features */,
+				6F4A569B2BE1AE4800E1CC28 /* Modifiers */,
+				6F4A569F2BE1AEF500E1CC28 /* Services */,
+				6F4A569D2BE1AEA500E1CC28 /* Utilities */,
+				6F4A569E2BE1AEBC00E1CC28 /* Views */,
 				6F4A568C2BE1AACB00E1CC28 /* TravelGuideApp.swift */,
 				6F4A568E2BE1AACB00E1CC28 /* ContentView.swift */,
-				6F4A56902BE1AACD00E1CC28 /* Assets.xcassets */,
-				6F4A56922BE1AACD00E1CC28 /* Preview Content */,
+				6F4A569C2BE1AE8F00E1CC28 /* Resources */,
 			);
 			path = TravelGuide;
 			sourceTree = "<group>";
@@ -65,6 +69,50 @@
 				6F4A56932BE1AACD00E1CC28 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6F4A569A2BE1AE3100E1CC28 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		6F4A569B2BE1AE4800E1CC28 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		6F4A569C2BE1AE8F00E1CC28 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6F4A56902BE1AACD00E1CC28 /* Assets.xcassets */,
+				6F4A56922BE1AACD00E1CC28 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6F4A569D2BE1AEA500E1CC28 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6F4A569E2BE1AEBC00E1CC28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F4A569F2BE1AEF500E1CC28 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TravelGuide/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TravelGuide/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = RLTBABHG5N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -300,7 +348,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TravelGuide/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TravelGuide/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = RLTBABHG5N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
