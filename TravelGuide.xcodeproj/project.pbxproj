@@ -11,6 +11,8 @@
 		6F4A568F2BE1AACB00E1CC28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A568E2BE1AACB00E1CC28 /* ContentView.swift */; };
 		6F4A56912BE1AACD00E1CC28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A56902BE1AACD00E1CC28 /* Assets.xcassets */; };
 		6F4A56942BE1AACD00E1CC28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A56932BE1AACD00E1CC28 /* Preview Assets.xcassets */; };
+		6FEA59962BE1B43800528E55 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA59942BE1B43800528E55 /* Inter-Bold.ttf */; };
+		6FEA59972BE1B43800528E55 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA59952BE1B43800528E55 /* Inter-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,9 @@
 		6F4A568E2BE1AACB00E1CC28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6F4A56902BE1AACD00E1CC28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F4A56932BE1AACD00E1CC28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6FEA59942BE1B43800528E55 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		6FEA59952BE1B43800528E55 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		6FEA59982BE1B49F00528E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +56,7 @@
 		6F4A568B2BE1AACB00E1CC28 /* TravelGuide */ = {
 			isa = PBXGroup;
 			children = (
+				6FEA59982BE1B49F00528E55 /* Info.plist */,
 				6F4A569A2BE1AE3100E1CC28 /* Features */,
 				6F4A569B2BE1AE4800E1CC28 /* Modifiers */,
 				6F4A569F2BE1AEF500E1CC28 /* Services */,
@@ -88,6 +94,7 @@
 		6F4A569C2BE1AE8F00E1CC28 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6FEA59932BE1B3CD00528E55 /* Fonts */,
 				6F4A56902BE1AACD00E1CC28 /* Assets.xcassets */,
 				6F4A56922BE1AACD00E1CC28 /* Preview Content */,
 			);
@@ -113,6 +120,15 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		6FEA59932BE1B3CD00528E55 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6FEA59942BE1B43800528E55 /* Inter-Bold.ttf */,
+				6FEA59952BE1B43800528E55 /* Inter-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +189,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FEA59962BE1B43800528E55 /* Inter-Bold.ttf in Resources */,
 				6F4A56942BE1AACD00E1CC28 /* Preview Assets.xcassets in Resources */,
+				6FEA59972BE1B43800528E55 /* Inter-Regular.ttf in Resources */,
 				6F4A56912BE1AACD00E1CC28 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +341,7 @@
 				DEVELOPMENT_TEAM = RLTBABHG5N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelGuide/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -352,6 +371,7 @@
 				DEVELOPMENT_TEAM = RLTBABHG5N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelGuide/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
