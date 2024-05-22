@@ -66,7 +66,7 @@ struct OnboardingView: View {
                         AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.IS_SHOW_ONBOARDING, value: true)
                         navigation
                             .present(.page) {
-                                //LocationPermissionView()
+                                LocationPermissionView()
                             }
                     }
                 } label: {
