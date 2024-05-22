@@ -11,7 +11,9 @@ import SwiftUI
 struct TravelGuideApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                SplashView()
+            }
         }
     }
 }
