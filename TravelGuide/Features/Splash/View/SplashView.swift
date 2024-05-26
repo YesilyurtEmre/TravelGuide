@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct SplashView: View {
     
-    @ObservedObject private var navigation = Navigation()
-    @State private var navigateToOnboarding = false
+    @ObservedObject
+    private var navigation = Navigation()
+    @ObservedObject
+    private var locationViewModel = LocationPermissionViewModel()
     
     var body: some View {
         ZStack {
@@ -30,26 +33,29 @@ struct SplashView: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                       navigateToOnboarding = true
-                }
-            }
-        .background(
-            NavigationLink(
-                destination: OnboardingView(),
-                                    isActive: $navigateToOnboarding,
-                                    label: EmptyView.init
-            )
-            .hidden()
-            )
-        .navigationBarHidden(true)
-        }
+             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                 if AppLocalStorage.shared.readValue(forKey: LocalStorageKeys.IS_SHOW_ONBOARDING) ?? false {
+                     locationViewModel.checkCurrentAuthorizationStatus()
+                     if locationViewModel.shouldNavigateToTravelGuide {
+                         navigation.present(.page) {
+                             TravelGuideTabView()
+                         }
+                     } else {
+                         navigation.present(.page) {
+                             LocationPermissionView()
+                         }
+                     }
+                 } else {
+                     navigation.present(.page) {
+                         OnboardingView()
+                     }
+                 }
+             }
+         }
+        .uses(navigation)
     }
-    
-   
-
+}
 
 #Preview {
     SplashView()
 }
-
