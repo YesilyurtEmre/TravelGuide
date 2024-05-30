@@ -25,6 +25,14 @@
 		6F8272912C090E3400FE2FC8 /* SearchLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272902C090E3400FE2FC8 /* SearchLocationResponse.swift */; };
 		6F8272952C090F0300FE2FC8 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272942C090F0300FE2FC8 /* RemoteImage.swift */; };
 		6F8272982C090F3F00FE2FC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272972C090F3F00FE2FC8 /* LoadingView.swift */; };
+		6F82729E2C09148E00FE2FC8 /* LandmarkClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6F82729D2C09148E00FE2FC8 /* LandmarkClassifier.mlmodel */; };
+		6F8272A22C09151800FE2FC8 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272A12C09151800FE2FC8 /* GalleryView.swift */; };
+		6F8272A42C09155600FE2FC8 /* CameraLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272A32C09155600FE2FC8 /* CameraLiveView.swift */; };
+		6F8272A72C0915F600FE2FC8 /* CameraLiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272A62C0915F600FE2FC8 /* CameraLiveViewModel.swift */; };
+		6F8272A92C09165900FE2FC8 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272A82C09165900FE2FC8 /* VideoCapture.swift */; };
+		6F8272AB2C09169D00FE2FC8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272AA2C09169D00FE2FC8 /* ImagePicker.swift */; };
+		6F8272AD2C0916E000FE2FC8 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272AC2C0916E000FE2FC8 /* CameraPreview.swift */; };
+		6F8272AF2C09170600FE2FC8 /* CameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272AE2C09170600FE2FC8 /* CameraOverlayView.swift */; };
 		6F90828D2C03574F00C30F09 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F90828C2C03574F00C30F09 /* SettingsView.swift */; };
 		6F9082912C03579200C30F09 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9082902C03579200C30F09 /* FavoritesView.swift */; };
 		6F9082952C0357C800C30F09 /* CoreMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9082942C0357C800C30F09 /* CoreMLView.swift */; };
@@ -65,6 +73,14 @@
 		6F8272902C090E3400FE2FC8 /* SearchLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationResponse.swift; sourceTree = "<group>"; };
 		6F8272942C090F0300FE2FC8 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		6F8272972C090F3F00FE2FC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		6F82729D2C09148E00FE2FC8 /* LandmarkClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LandmarkClassifier.mlmodel; sourceTree = "<group>"; };
+		6F8272A12C09151800FE2FC8 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		6F8272A32C09155600FE2FC8 /* CameraLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveView.swift; sourceTree = "<group>"; };
+		6F8272A62C0915F600FE2FC8 /* CameraLiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveViewModel.swift; sourceTree = "<group>"; };
+		6F8272A82C09165900FE2FC8 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		6F8272AA2C09169D00FE2FC8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		6F8272AC2C0916E000FE2FC8 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		6F8272AE2C09170600FE2FC8 /* CameraOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOverlayView.swift; sourceTree = "<group>"; };
 		6F90828C2C03574F00C30F09 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6F9082902C03579200C30F09 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		6F9082942C0357C800C30F09 /* CoreMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLView.swift; sourceTree = "<group>"; };
@@ -265,8 +281,43 @@
 			isa = PBXGroup;
 			children = (
 				6F8272972C090F3F00FE2FC8 /* LoadingView.swift */,
+				6F8272AA2C09169D00FE2FC8 /* ImagePicker.swift */,
+				6F8272AC2C0916E000FE2FC8 /* CameraPreview.swift */,
 			);
 			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
+		6F82729C2C09143600FE2FC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F82729D2C09148E00FE2FC8 /* LandmarkClassifier.mlmodel */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6F82729F2C0914E300FE2FC8 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				6F8272A32C09155600FE2FC8 /* CameraLiveView.swift */,
+				6F8272AE2C09170600FE2FC8 /* CameraOverlayView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		6F8272A02C0914ED00FE2FC8 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				6F8272A12C09151800FE2FC8 /* GalleryView.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		6F8272A52C0915A000FE2FC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F8272A62C0915F600FE2FC8 /* CameraLiveViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6F90828A2C03571A00C30F09 /* Settings */ = {
@@ -304,7 +355,9 @@
 		6F9082922C0357A900C30F09 /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
+				6F82729C2C09143600FE2FC8 /* Model */,
 				6F9082932C0357B300C30F09 /* View */,
+				6F8272A52C0915A000FE2FC8 /* ViewModel */,
 			);
 			path = CoreML;
 			sourceTree = "<group>";
@@ -312,6 +365,8 @@
 		6F9082932C0357B300C30F09 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6F8272A02C0914ED00FE2FC8 /* Gallery */,
+				6F82729F2C0914E300FE2FC8 /* Camera */,
 				6F9082942C0357C800C30F09 /* CoreMLView.swift */,
 			);
 			path = View;
@@ -400,6 +455,7 @@
 				6FC3215B2BFE4855005D966D /* AppLocalStorage.swift */,
 				6FC3215D2BFE486F005D966D /* Constants.swift */,
 				6F8272802C090CF300FE2FC8 /* Config.swift */,
+				6F8272A82C09165900FE2FC8 /* VideoCapture.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -485,12 +541,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F82729E2C09148E00FE2FC8 /* LandmarkClassifier.mlmodel in Sources */,
 				6FC3214A2BFE446B005D966D /* NavigationType.swift in Sources */,
+				6F8272A42C09155600FE2FC8 /* CameraLiveView.swift in Sources */,
 				6F82728B2C090DD000FE2FC8 /* LocationReviewsResponse.swift in Sources */,
 				6F9082992C03580100C30F09 /* SearchView.swift in Sources */,
 				6F8272912C090E3400FE2FC8 /* SearchLocationResponse.swift in Sources */,
+				6F8272A22C09151800FE2FC8 /* GalleryView.swift in Sources */,
+				6F8272AB2C09169D00FE2FC8 /* ImagePicker.swift in Sources */,
 				6FC321462BFE4421005D966D /* Navigation.swift in Sources */,
 				6F8272982C090F3F00FE2FC8 /* LoadingView.swift in Sources */,
+				6F8272A72C0915F600FE2FC8 /* CameraLiveViewModel.swift in Sources */,
 				6F8272862C090D4A00FE2FC8 /* Alert.swift in Sources */,
 				6F90829D2C0358EF00C30F09 /* HomeViewModel.swift in Sources */,
 				6FC321482BFE444A005D966D /* NavigationViewModifier.swift in Sources */,
@@ -504,13 +565,16 @@
 				6F2D76DE2BFE69E30001AFAA /* LocationPermissionView.swift in Sources */,
 				6F90828D2C03574F00C30F09 /* SettingsView.swift in Sources */,
 				6FC321522BFE46A0005D966D /* OnboardingView.swift in Sources */,
+				6F8272AF2C09170600FE2FC8 /* CameraOverlayView.swift in Sources */,
 				6F2D76CF2BFE66F70001AFAA /* HomeView.swift in Sources */,
 				6F8272952C090F0300FE2FC8 /* RemoteImage.swift in Sources */,
 				6FC321542BFE46D9005D966D /* OnboardingPage.swift in Sources */,
+				6F8272AD2C0916E000FE2FC8 /* CameraPreview.swift in Sources */,
 				6F9082912C03579200C30F09 /* FavoritesView.swift in Sources */,
 				6FC3215E2BFE486F005D966D /* Constants.swift in Sources */,
 				6F2D76E02BFE6A3F0001AFAA /* View+Extensions.swift in Sources */,
 				6F8272812C090CF400FE2FC8 /* Config.swift in Sources */,
+				6F8272A92C09165900FE2FC8 /* VideoCapture.swift in Sources */,
 				6F82727F2C090CAA00FE2FC8 /* APIRequest.swift in Sources */,
 				6F8272882C090D7E00FE2FC8 /* LocationService.swift in Sources */,
 				6F9082952C0357C800C30F09 /* CoreMLView.swift in Sources */,
