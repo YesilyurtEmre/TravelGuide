@@ -15,7 +15,7 @@ final class LocationPermissionViewModel: NSObject, ObservableObject, CLLocationM
     @Published
     var shouldShowPermissionAlert = false
     @Published
-    var userCity: String?
+    var userCity: String? = "İstanbul"
     
     private var locationManager: CLLocationManager
     
@@ -93,7 +93,7 @@ final class LocationPermissionViewModel: NSObject, ObservableObject, CLLocationM
             convertCoordinateToCityName(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { city in
                 DispatchQueue.main.async {
                     self.userCity = city
-                    AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: city ?? "Istanbul")
+                    AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: city ?? "İstanbul")
                     AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.IS_GET_LOCATION_PERMISSION, value: true)
                     self.shouldNavigateToTravelGuide = true
                 }
@@ -104,7 +104,7 @@ final class LocationPermissionViewModel: NSObject, ObservableObject, CLLocationM
     private func convertCoordinateToCityName(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping (String?) -> Void) {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
-            guard let _ = placemarks?.first, error == nil else {
+            guard let  placemark = placemarks?.first, error == nil else {
                 completion(nil)
                 return
             }
@@ -114,20 +114,16 @@ final class LocationPermissionViewModel: NSObject, ObservableObject, CLLocationM
                 return
             }
             
-            guard let placemark = placemarks?.first else {
-                print("No placemarks found")
-                completion(nil)
-                return
-            }
+            let city = placemark.administrativeArea ?? placemark.locality
             
-            completion(placemark.locality)
+            completion(city)
         }
     }
     
     private func setDefaultCity() {
         DispatchQueue.main.async {
-            self.userCity = "Istanbul"
-            AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: "Istanbul")
+            self.userCity = "İstanbul"
+            AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: "İstanbul")
             self.shouldNavigateToTravelGuide = true
         }
     }

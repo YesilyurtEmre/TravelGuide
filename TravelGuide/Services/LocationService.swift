@@ -64,18 +64,18 @@ struct LocationService {
         return response
     }
     
-    func fetcLocationReviews(locationId: String) async throws -> LocationReviewsResponse {
+    func fetcNearbyLocation(lat: String = "41.00986", long: String = "28.95707") async throws -> NearbyLocationResponse {
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "key", value: Config.shared.api_key),
-            URLQueryItem(name: "locationId", value: locationId)
+            URLQueryItem(name: "latLong", value: "\(lat),\(long)")
         ]
         
         let data = try await APIRequest.shared.call(
-            path: Config.shared.path + "/\(locationId)/reviews",
+            path: Config.shared.path + "/nearby_search",
             queryItems: queryItems
         )
         
-        guard let response = try? JSONDecoder().decode(LocationReviewsResponse.self, from: data) else {
+        guard let response = try? JSONDecoder().decode(NearbyLocationResponse.self, from: data) else {
             throw APIError.invalidResponse
         }
         

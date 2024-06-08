@@ -8,36 +8,15 @@
 import SwiftUI
 
 struct SearchView: View {
-
+    
     @Binding
     var searchText: String
-
-    var userCity: String
     
     var body: some View {
-        HStack {
-            TextField("Search", text: $searchText)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(8)
-            
-            Spacer()
-            
-            HStack(spacing: 8) {
-                Image(systemName: "location")
-                Text(userCity)
-            }
-            .padding(.horizontal)
-            .foregroundColor(.blue)
-        }
-        .padding()
+        TextField("Search", text: $searchText)
+            .padding()
+            .frame(height: 60)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
     }
-}
-
-
-#Preview {
-    SearchView(
-        searchText: .constant(""),
-        userCity: ""
-    )
 }
