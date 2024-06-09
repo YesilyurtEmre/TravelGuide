@@ -14,6 +14,11 @@
 		6F4A568D2BE1AACB00E1CC28 /* TravelGuideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A568C2BE1AACB00E1CC28 /* TravelGuideApp.swift */; };
 		6F4A56912BE1AACD00E1CC28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A56902BE1AACD00E1CC28 /* Assets.xcassets */; };
 		6F4A56942BE1AACD00E1CC28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F4A56932BE1AACD00E1CC28 /* Preview Assets.xcassets */; };
+		6F4AA9842C15B4610012F060 /* NearbyLocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4AA9832C15B4610012F060 /* NearbyLocationDetailsView.swift */; };
+		6F4AA9872C15B4B70012F060 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4AA9862C15B4B70012F060 /* XDismissButton.swift */; };
+		6F4AA9892C15B4F10012F060 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4AA9882C15B4F10012F060 /* CoreDataManager.swift */; };
+		6F4AA98F2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F4AA98D2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodeld */; };
+		6F4AA9922C15B8470012F060 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4AA9912C15B8470012F060 /* FavoritesViewModel.swift */; };
 		6F82727F2C090CAA00FE2FC8 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F82727E2C090CAA00FE2FC8 /* APIRequest.swift */; };
 		6F8272812C090CF400FE2FC8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272802C090CF300FE2FC8 /* Config.swift */; };
 		6F8272842C090D2C00FE2FC8 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272832C090D2C00FE2FC8 /* APIError.swift */; };
@@ -32,7 +37,6 @@
 		6F8272AB2C09169D00FE2FC8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272AA2C09169D00FE2FC8 /* ImagePicker.swift */; };
 		6F8272AD2C0916E000FE2FC8 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272AC2C0916E000FE2FC8 /* CameraPreview.swift */; };
 		6F8272AF2C09170600FE2FC8 /* CameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8272AE2C09170600FE2FC8 /* CameraOverlayView.swift */; };
-		6F90828D2C03574F00C30F09 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F90828C2C03574F00C30F09 /* SettingsView.swift */; };
 		6F9082912C03579200C30F09 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9082902C03579200C30F09 /* FavoritesView.swift */; };
 		6F9082952C0357C800C30F09 /* CoreMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9082942C0357C800C30F09 /* CoreMLView.swift */; };
 		6F9082992C03580100C30F09 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9082982C03580100C30F09 /* SearchView.swift */; };
@@ -67,6 +71,11 @@
 		6F4A568C2BE1AACB00E1CC28 /* TravelGuideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelGuideApp.swift; sourceTree = "<group>"; };
 		6F4A56902BE1AACD00E1CC28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F4A56932BE1AACD00E1CC28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6F4AA9832C15B4610012F060 /* NearbyLocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationDetailsView.swift; sourceTree = "<group>"; };
+		6F4AA9862C15B4B70012F060 /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		6F4AA9882C15B4F10012F060 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6F4AA98E2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteLocationsModel.xcdatamodel; sourceTree = "<group>"; };
+		6F4AA9912C15B8470012F060 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		6F82727E2C090CAA00FE2FC8 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		6F8272802C090CF300FE2FC8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6F8272832C090D2C00FE2FC8 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -85,7 +94,6 @@
 		6F8272AA2C09169D00FE2FC8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		6F8272AC2C0916E000FE2FC8 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		6F8272AE2C09170600FE2FC8 /* CameraOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOverlayView.swift; sourceTree = "<group>"; };
-		6F90828C2C03574F00C30F09 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6F9082902C03579200C30F09 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		6F9082942C0357C800C30F09 /* CoreMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLView.swift; sourceTree = "<group>"; };
 		6F9082982C03580100C30F09 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 				6F2D76CE2BFE66F70001AFAA /* HomeView.swift */,
 				6FA128E32C14F8A9008D4CE7 /* ChooseCityView.swift */,
 				6FA128E52C14F8DB008D4CE7 /* LocationCardView.swift */,
+				6F4AA9832C15B4610012F060 /* NearbyLocationDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				6F2D76D92BFE699C0001AFAA /* LocationManager.swift */,
+				6F4AA9882C15B4F10012F060 /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -191,6 +201,7 @@
 				6F82727D2C090C8400FE2FC8 /* Services */,
 				6F8272922C090ED600FE2FC8 /* Views */,
 				6F2D76D82BFE69700001AFAA /* Managers */,
+				6F4AA98A2C15B51C0012F060 /* CoreData */,
 				6F4A569D2BE1AEA500E1CC28 /* Utilities */,
 				6F4A568C2BE1AACB00E1CC28 /* TravelGuideApp.swift */,
 				6F4A569C2BE1AE8F00E1CC28 /* Resources */,
@@ -209,7 +220,6 @@
 		6F4A569A2BE1AE3100E1CC28 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				6F90828A2C03571A00C30F09 /* Settings */,
 				6F90828E2C03577800C30F09 /* Favorites */,
 				6F9082922C0357A900C30F09 /* CoreML */,
 				6F9082962C0357EC00C30F09 /* Search */,
@@ -241,6 +251,30 @@
 				6FC321442BFE4403005D966D /* NavigaitonHelper */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6F4AA9852C15B4A70012F060 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				6F4AA9862C15B4B70012F060 /* XDismissButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		6F4AA98A2C15B51C0012F060 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6F4AA98D2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		6F4AA9902C15B8330012F060 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F4AA9912C15B8470012F060 /* FavoritesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6F82727D2C090C8400FE2FC8 /* Services */ = {
@@ -276,6 +310,7 @@
 		6F8272922C090ED600FE2FC8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6F4AA9852C15B4A70012F060 /* Buttons */,
 				6F8272962C090F2C00FE2FC8 /* UIKit Components */,
 				6F8272932C090EEE00FE2FC8 /* Image */,
 			);
@@ -333,25 +368,10 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		6F90828A2C03571A00C30F09 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				6F90828B2C03572500C30F09 /* View */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		6F90828B2C03572500C30F09 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6F90828C2C03574F00C30F09 /* SettingsView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		6F90828E2C03577800C30F09 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				6F4AA9902C15B8330012F060 /* ViewModel */,
 				6F90828F2C03578300C30F09 /* View */,
 			);
 			path = Favorites;
@@ -566,10 +586,13 @@
 				6F8272AB2C09169D00FE2FC8 /* ImagePicker.swift in Sources */,
 				6FC321462BFE4421005D966D /* Navigation.swift in Sources */,
 				6F8272982C090F3F00FE2FC8 /* LoadingView.swift in Sources */,
+				6F4AA98F2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodeld in Sources */,
 				6F8272A72C0915F600FE2FC8 /* CameraLiveViewModel.swift in Sources */,
+				6F4AA9842C15B4610012F060 /* NearbyLocationDetailsView.swift in Sources */,
 				6FA128D82C13B75C008D4CE7 /* NearbyLocationDetail.swift in Sources */,
 				6F8272862C090D4A00FE2FC8 /* Alert.swift in Sources */,
 				6F90829D2C0358EF00C30F09 /* HomeViewModel.swift in Sources */,
+				6F4AA9872C15B4B70012F060 /* XDismissButton.swift in Sources */,
 				6FA128E02C14F7B0008D4CE7 /* Text+Extensions.swift in Sources */,
 				6FC321482BFE444A005D966D /* NavigationViewModifier.swift in Sources */,
 				6F8272842C090D2C00FE2FC8 /* APIError.swift in Sources */,
@@ -582,8 +605,9 @@
 				6FC3215C2BFE4855005D966D /* AppLocalStorage.swift in Sources */,
 				6FA128DE2C14F783008D4CE7 /* CustomFont.swift in Sources */,
 				6F2D76DE2BFE69E30001AFAA /* LocationPermissionView.swift in Sources */,
-				6F90828D2C03574F00C30F09 /* SettingsView.swift in Sources */,
+				6F4AA9922C15B8470012F060 /* FavoritesViewModel.swift in Sources */,
 				6FC321522BFE46A0005D966D /* OnboardingView.swift in Sources */,
+				6F4AA9892C15B4F10012F060 /* CoreDataManager.swift in Sources */,
 				6F8272AF2C09170600FE2FC8 /* CameraOverlayView.swift in Sources */,
 				6FA128D62C13B737008D4CE7 /* NearbyLocationResponse.swift in Sources */,
 				6F2D76CF2BFE66F70001AFAA /* HomeView.swift in Sources */,
@@ -812,6 +836,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6F4AA98D2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6F4AA98E2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodel */,
+			);
+			currentVersion = 6F4AA98E2C15B5AC0012F060 /* FavoriteLocationsModel.xcdatamodel */;
+			path = FavoriteLocationsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6F4A56812BE1AACB00E1CC28 /* Project object */;
 }

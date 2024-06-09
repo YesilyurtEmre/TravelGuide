@@ -28,6 +28,8 @@ final class HomeViewModel: ObservableObject {
     @Published
     var isShowingDetail = false
     @Published
+    var selectedLocation: NearbyLocationDetail?
+    @Published
     var isCityChange = false
     
     var locationId = "298656"

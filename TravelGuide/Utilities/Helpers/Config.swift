@@ -31,4 +31,12 @@ final class Config {
         "Mardin": "672951",
         "Gaziantep": "297998"
     ]
+    
+    let coreMLIds: [String: String] = [
+        "OperaHouse": "257278",
+        "PisaTower": "195452",
+        "Eiffel": "188151",
+        "Pyramids": "317746",
+        "Colosseum": "192285"
+    ]
 }

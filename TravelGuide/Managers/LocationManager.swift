@@ -15,7 +15,7 @@ final class LocationPermissionViewModel: NSObject, ObservableObject, CLLocationM
     @Published
     var shouldShowPermissionAlert = false
     @Published
-    var userCity: String? = "İstanbul"
+    var userCity: String? = "Elâzığ"
     
     private var locationManager: CLLocationManager
     
@@ -93,7 +93,7 @@ final class LocationPermissionViewModel: NSObject, ObservableObject, CLLocationM
             convertCoordinateToCityName(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { city in
                 DispatchQueue.main.async {
                     self.userCity = city
-                    AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: city ?? "İstanbul")
+                    AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: city ?? "Elâzığ")
                     AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.IS_GET_LOCATION_PERMISSION, value: true)
                     self.shouldNavigateToTravelGuide = true
                 }
@@ -122,8 +122,8 @@ final class LocationPermissionViewModel: NSObject, ObservableObject, CLLocationM
     
     private func setDefaultCity() {
         DispatchQueue.main.async {
-            self.userCity = "İstanbul"
-            AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: "İstanbul")
+            self.userCity = "Elâzığ"
+            AppLocalStorage.shared.saveValue(forKey: LocalStorageKeys.USER_CITY, value: "Elâzığ")
             self.shouldNavigateToTravelGuide = true
         }
     }

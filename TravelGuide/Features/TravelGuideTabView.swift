@@ -27,11 +27,6 @@ struct TravelGuideTabView: View {
                     Image(systemName: "heart.circle.fill")
                     Text("Favorites")
                 }
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Settings")
-                }
         }
         .accentColor(.appColor)
     }

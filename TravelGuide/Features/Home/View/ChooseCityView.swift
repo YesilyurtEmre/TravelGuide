@@ -20,14 +20,14 @@ struct ChooseCityView: View {
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(Color.appColor)
+                        .foregroundColor(Color.green)
                 }
                 Spacer()
             }
             .padding(.top, 16)
             .padding(.leading, 16)
             
-            Image(systemName: "globe")
+            Image(systemName: "map")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
@@ -46,7 +46,7 @@ struct ChooseCityView: View {
                             .cornerRadius(8)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
-                                    .stroke(place == userCity ? Color.green : (selectedCity == place ? Color.red : Color.gray), lineWidth: 1)
+                                    .stroke(place == userCity ? Color.red : (selectedCity == place ? Color.green : Color.gray), lineWidth: 1)
                             )
                             .onTapGesture {
                                 selectedCity = place
@@ -67,7 +67,7 @@ struct ChooseCityView: View {
                 Text("Continue")
                     .frame(height: 50)
                     .frame(maxWidth: .infinity)
-                    .background(selectedCity != userCity && !selectedCity.isEmpty ? Color.blue : Color.gray)
+                    .background(selectedCity != userCity && !selectedCity.isEmpty ? Color.appColor : Color.gray)
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }

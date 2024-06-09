@@ -9,16 +9,19 @@ import SwiftUI
 
 struct CameraOverlayView: View {
     let label: String
-    let confidence: String
 
     var body: some View {
         VStack(spacing: 10) {
             Text(label)
                 .foregroundColor(.white)
                 .font(.headline)
-            Text("Güvenilirlik: \(confidence)")
-                .foregroundColor(.white)
-                .font(.subheadline)
+            Button {
+                print("change card button tapped")
+            } label: {
+                Text("Search")
+                    .customFont(.regular, size: 12)
+                    .foregroundColor(.white)
+            }
         }
         .padding()
     }

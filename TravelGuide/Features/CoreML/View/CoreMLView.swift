@@ -10,11 +10,11 @@ import SwiftUI
 struct CoreMLView: View {
     var body: some View {
         TabView {
-            CameraLiveView(viewModel: CameraLiveViewModel())
-                .tabItem {
-                    Image(systemName: "camera")
-                    Text("Camera")
-                }
+//            CameraLiveView(viewModel: CameraLiveViewModel())
+//                .tabItem {
+//                    Image(systemName: "camera")
+//                    Text("Camera")
+//                }
             GalleryView()
                 .tabItem {
                     Image(systemName: "photo.on.rectangle")

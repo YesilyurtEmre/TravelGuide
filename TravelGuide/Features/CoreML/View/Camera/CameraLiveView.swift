@@ -25,8 +25,7 @@ struct CameraLiveView: View {
                     .animation(.default)
             }
             CameraOverlayView(
-                label: viewModel.label,
-                confidence: viewModel.confidence
+                label: viewModel.label
             )
             .frame(maxWidth: .infinity)
             .frame(height: UIScreen.main.bounds.height * 0.1) // Textler ekranın %10'unda yer alsın

@@ -20,7 +20,8 @@ struct LocationPhoto: Codable {
 // MARK: - Images
 struct Images: Codable {
     let thumbnail, small, medium, large: Large
-    let original: Large
+    let original: Large?
+    
 }
 
 // MARK: - Large

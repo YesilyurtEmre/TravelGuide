@@ -17,6 +17,9 @@ struct HomeView: View {
     private var timer: Timer?
     @State
     private var showingChooseCityView = false
+    @State
+    private var isShowCoreMLModel = false
+    
     
     @ObservedObject
     private var viewModel = HomeViewModel()
@@ -24,24 +27,35 @@ struct HomeView: View {
     private var locationPermissionViewModel = LocationPermissionViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            chooseCityView()
-            SearchView(searchText: $searchText)
-            if viewModel.isLoading {
-                LoadingView()
-            } else {
-                ScrollView {
-                    if let _ = viewModel.locationDetail,
-                       let locationPhotos = viewModel.locationPhotos {
-                        sliderView(photos: locationPhotos.data)
-                        nearbyLocationsView()
-                        aboutCityView()
+        ZStack {
+            VStack {
+                chooseCityView()
+                //            SearchView(searchText: $searchText)
+                searchView()
+                
+                if viewModel.isLoading {
+                    LoadingView()
+                } else {
+                    ScrollView {
+                        if let _ = viewModel.locationDetail,
+                           let locationPhotos = viewModel.locationPhotos {
+                            sliderView(photos: locationPhotos.data)
+                            nearbyLocationsView()
+                            aboutCityView()
+                        }
+                        if viewModel.alertItem != nil {
+                            Spacer()
+                        }
                     }
-                    if viewModel.alertItem != nil {
-                        Spacer()
-                    }
+                    .scrollIndicators(.hidden)
                 }
-                .scrollIndicators(.hidden)
+            }
+            .blur(radius: viewModel.isShowingDetail ? 20 : 0)
+            if viewModel.isShowingDetail, let selectedLocation = viewModel.selectedLocation {
+                NearbyLocationDetailsView(
+                    locationModel: selectedLocation,
+                    isShowingDetail: $viewModel.isShowingDetail
+                )
             }
         }
         .fullScreenCover(isPresented: $showingChooseCityView) {
@@ -75,9 +89,39 @@ struct HomeView: View {
                 showingChooseCityView = true
             }) {
                 Image(systemName: "chevron.down")
+                    .foregroundColor(.green)
             }
         }
         
+    }
+    
+    @ViewBuilder
+    private func searchView() -> some View {
+        TextField("Search", text: $searchText, onEditingChanged: { isEditing in
+            if isEditing {
+                startSearch()
+            } else {
+            }
+        })
+        .padding()
+        .frame(height: 60)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(8)
+    }
+    
+    private func startSearch() {
+        print("searchText---\(searchText)")
+        let locationId = Config.shared.coreMLIds[searchText] ?? ""
+        //
+        //        guard let locationId = Config.shared.coreMLIds.first(where: { $0.value == searchText })?.value else {
+        //            return
+        //        }
+        print("locationId--\(locationId)")
+        Task {
+            isShowCoreMLModel = true
+            await viewModel.searchLocation(locationId: locationId)
+            
+        }
     }
     
     @ViewBuilder
@@ -103,9 +147,11 @@ struct HomeView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 12) {
                 ForEach(viewModel.nearbyLocationDetails) { model in
-                    LocationCardView(locationModel: model) {
-                        print("Tapped add to cart")
-                    }
+                    LocationCardView(locationModel: model)
+                        .onTapGesture {
+                            viewModel.selectedLocation = model
+                            viewModel.isShowingDetail = true
+                        }
                 }
             }
         }
@@ -116,7 +162,7 @@ struct HomeView: View {
         VStack {
             TabView(selection: $currentIndex) {
                 ForEach(photos.indices, id: \.self) { index in
-                    CityRemoteImage(urlString: photos[index].images.original.url)
+                    CityRemoteImage(urlString: photos[index].images.large.url)
                         .scaledToFill()
                         .tag(index)
                         .frame(height: 200)
@@ -154,9 +200,15 @@ struct HomeView: View {
     private func aboutCityView() -> some View {
         VStack(alignment: .leading, spacing: 10) {
             if let city = locationPermissionViewModel.userCity {
-                Text("About \(city)")
-                    .customFont(.bold, size: 14)
-                    .foregroundColor(.appColor)
+                if isShowCoreMLModel {
+                    Text("About \(searchText)")
+                        .customFont(.bold, size: 14)
+                        .foregroundColor(.appColor)
+                } else {
+                    Text("About \(city)")
+                        .customFont(.bold, size: 14)
+                        .foregroundColor(.appColor)
+                }
                 
                 Text(viewModel.locationDetail?.description ?? "Can not find any information about \(city) !!")
                     .customFont(.regular, size: 12)

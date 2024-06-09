@@ -10,7 +10,6 @@ import SwiftUI
 struct LocationCardView: View {
     
     var locationModel: NearbyLocationDetail
-    var action: () -> Void
     
     var body: some View {
         
@@ -27,7 +26,7 @@ struct LocationCardView: View {
     
     @ViewBuilder
     private func imageView() -> some View {
-        CityRemoteImage(urlString: locationModel.photos.data.first?.images.original.url ?? "")
+        CityRemoteImage(urlString: locationModel.photos.data.first?.images.large.url ?? "")
             .frame(width: 137, height: 170)
             .aspectRatio(contentMode: .fit)
             .cornerRadius(8)

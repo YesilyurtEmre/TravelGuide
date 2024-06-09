@@ -13,6 +13,8 @@ struct GalleryView: View {
     @State private var isShowingImagePicker = false
     @State private var selectedImage: UIImage?
     @State private var classificationResult = ""
+    @State private var isShowSearchButton = true
+    @State private var navigateToHome = false
     
     var body: some View {
         VStack {
@@ -36,10 +38,28 @@ struct GalleryView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.6)
                     .padding()
                 
-                Text(classificationResult)
-                    .font(.body)
-                    .padding()
-                    .multilineTextAlignment(.center)
+                HStack {
+                    Text(classificationResult)
+                        .font(.body)
+                        .padding()
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                    if isShowSearchButton {
+//                        NavigationLink(destination:  HomeView(searchText: classificationResult), isActive: $navigateToHome) {
+//                            EmptyView()
+//                        }
+                        Button {
+                            print("change card button tapped")
+                        } label: {
+                            Text("Search")
+                                .customFont(.regular, size: 12)
+                                .foregroundColor(.appColor)
+                        }
+                        
+                    }
+                    
+                }
+                
             } else {
                 Image(systemName: "photo")
                     .resizable()
@@ -72,13 +92,14 @@ struct GalleryView: View {
             guard let results = request.results as? [VNClassificationObservation],
                   let topResult = results.first else {
                 self.classificationResult = "Sınıflandırma başarısız"
+                self.isShowSearchButton = false
                 return
             }
             
             // Sınıflandırma sonucunu al
             self.classificationResult = topResult.identifier
-            let confidence = topResult.confidence
-           print("Classification result: \(classificationResult), Confidence: \(confidence)")
+//            let confidence = topResult.confidence
+//           print("Classification result: \(classificationResult), Confidence: \(confidence)")
         }
         
         
@@ -89,7 +110,8 @@ struct GalleryView: View {
         do {
             try handler.perform([request])
         } catch {
-            self.classificationResult = "Sınıflandırma başarısız: \(error.localizedDescription)"
+            self.classificationResult = "Sınıflandırma başarısız"
+            self.isShowSearchButton = false
         }
     }
 }
