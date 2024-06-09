@@ -12,18 +12,18 @@ struct OnboardingView: View {
     let onBoardingPages = [
         OnboardingPage(
             image: "Onboarding1",
-            title: "Step1",
-            description: "Travel with the help of the AI"
+            title: " Discover New Destinations",
+            description: "TravelGuide uses advanced CoreML technology to provide you with personalized travel recommendations and insights."
         ),
         OnboardingPage(
             image: "Onboarding2",
-            title: "Step2",
-            description: "Travel with the help of the AI"
+            title: "Plan Your Perfect Trip",
+            description: "Our smart planner uses CoreML to ensuring you don't miss out on anything important."
         ),
         OnboardingPage(
             image: "Onboarding3",
-            title: "Step3",
-            description: "Travel with the help of the AI"
+            title: "Navigate with Ease",
+            description: "TravelGuide's CoreML-powered features ensure you have the most accurate and helpful information at your fingertips."
         )
     ]
     

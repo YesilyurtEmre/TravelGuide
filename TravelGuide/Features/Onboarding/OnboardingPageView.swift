@@ -30,6 +30,9 @@ struct OnboardingPageView: View {
                 .padding(.top)
                 .padding(.bottom, 5)
                 .foregroundColor(.gray)
+                .minimumScaleFactor(0.5)
+                .lineLimit(nil)
+                .fixedSize(horizontal: true, vertical: false)
             
             Text(onboardingPage.description)
                 .font(.body)
@@ -37,6 +40,9 @@ struct OnboardingPageView: View {
                 .kerning(1.3)
                 .padding([.leading, .trailing])
                 .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
             
             Spacer(minLength: 0)
         }

@@ -26,7 +26,7 @@ struct SplashView: View {
                     .resizable()
                     .frame(width: 300, height: 300, alignment: .center)
                     .cornerRadius(10)
-                Text("Travel with the help of the AI")
+                Text("Travel Smarter with TravelGuide")
                     .foregroundColor(.black)
                     .font(.title2)
                 Spacer()

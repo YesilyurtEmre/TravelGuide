@@ -15,7 +15,7 @@ final class Config {
     let scheme: String = "https"
     let host: String = "api.content.tripadvisor.com"
     let path: String = "/api/v1/location"
-    let api_key: String = "52149B5D96B548E8A1D2B5D0DEC8CD0F"
+    let api_key: String = ""
     
     let places: [String] = ["Ankara", "İstanbul", "Elâzığ", "Antalya", "Bursa", "İzmir", "Çanakkale", "Trabzon", "Mardin", "Gaziantep"]
     
