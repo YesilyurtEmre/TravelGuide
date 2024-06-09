@@ -15,13 +15,14 @@ struct GalleryView: View {
     @State private var classificationResult = ""
     @State private var isShowSearchButton = true
     @State private var navigateToHome = false
+    @EnvironmentObject var sharedData: SharedData
+    @Binding var tabSelection: Int
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button(action: {
-                    // Galeri seçimini başlat
                     self.isShowingImagePicker.toggle()
                 }) {
                     Image(systemName: "photo")
@@ -30,7 +31,6 @@ struct GalleryView: View {
                 }
             }
             
-            // Burada, yalnızca galeri açıldığında görüntülenmesi gereken resim yer alıyor
             if selectedImage != nil {
                 Image(uiImage: selectedImage!)
                     .resizable()
@@ -45,17 +45,15 @@ struct GalleryView: View {
                         .multilineTextAlignment(.center)
                     Spacer()
                     if isShowSearchButton {
-//                        NavigationLink(destination:  HomeView(searchText: classificationResult), isActive: $navigateToHome) {
-//                            EmptyView()
-//                        }
                         Button {
-                            print("change card button tapped")
+                            tabSelection = 0
+                            sharedData.textValue  = classificationResult
                         } label: {
                             Text("Search")
                                 .customFont(.regular, size: 12)
                                 .foregroundColor(.appColor)
                         }
-                        
+                        .padding(.trailing, 16)
                     }
                     
                 }
@@ -68,7 +66,6 @@ struct GalleryView: View {
                     .padding()
             }
         }
-        // .sheet çağrısını düzenle, ImagePicker'ı sadece galeri açıldığında göster
         .sheet(isPresented: $isShowingImagePicker) {
             ImagePicker(selectedImage: self.$selectedImage, isShown: self.$isShowingImagePicker)
                 .onDisappear {
@@ -81,13 +78,11 @@ struct GalleryView: View {
     }
     
     func classifyImage(_ image: CIImage) {
-        // Core ML modelini yükle
         guard let model = try? VNCoreMLModel(for: LandmarkClassifier().model) else {
             fatalError("Model yüklenemedi")
             
         }
         
-        // Vision isteği oluştur ve sınıflandırmayı gerçekleştir
        let request = VNCoreMLRequest(model: model) { request, error in
             guard let results = request.results as? [VNClassificationObservation],
                   let topResult = results.first else {
@@ -96,16 +91,10 @@ struct GalleryView: View {
                 return
             }
             
-            // Sınıflandırma sonucunu al
+            
             self.classificationResult = topResult.identifier
-//            let confidence = topResult.confidence
-//           print("Classification result: \(classificationResult), Confidence: \(confidence)")
         }
         
-        
-
-        
-        // Vision isteğini oluşturulan resim üzerinde çalıştır
         let handler = VNImageRequestHandler(ciImage: image)
         do {
             try handler.perform([request])

@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State
-    private var searchText = ""
+    private var searchText = "Eiffel"
     @State
     private var currentIndex: Int = 0
     @State
@@ -20,8 +20,12 @@ struct HomeView: View {
     @State
     private var isShowCoreMLModel = false
     
+    @Binding
+    var tabSelection: Int
     
-    @ObservedObject
+    @EnvironmentObject
+    var sharedData: SharedData
+    @StateObject
     private var viewModel = HomeViewModel()
     @ObservedObject
     private var locationPermissionViewModel = LocationPermissionViewModel()
@@ -30,7 +34,6 @@ struct HomeView: View {
         ZStack {
             VStack {
                 chooseCityView()
-                //            SearchView(searchText: $searchText)
                 searchView()
                 
                 if viewModel.isLoading {
@@ -59,7 +62,7 @@ struct HomeView: View {
             }
         }
         .fullScreenCover(isPresented: $showingChooseCityView) {
-            ChooseCityView(userCity: $locationPermissionViewModel.userCity)
+            ChooseCityView(userCity: $locationPermissionViewModel.userCity, isShowCoreMLModel: $isShowCoreMLModel)
         }
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(
@@ -71,6 +74,18 @@ struct HomeView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 16)
         .navigationBarHidden(true)
+        .onChange(of: sharedData.textValue) { newValue in
+            guard let locationId = Config.shared.coreMLIds[newValue] else { return }
+            Task {
+                isShowCoreMLModel = true
+                await viewModel.searchLocation(locationId: locationId)
+            }
+        }
+        .onChange(of: isShowCoreMLModel) { newValue in
+            if !newValue {
+                sharedData.textValue = ""
+            }
+        }
         .onChange(of: locationPermissionViewModel.userCity) { newCity in
             if let newCity = newCity {
                 Task {
@@ -89,7 +104,6 @@ struct HomeView: View {
                 showingChooseCityView = true
             }) {
                 Image(systemName: "chevron.down")
-                    .foregroundColor(.green)
             }
         }
         
@@ -97,31 +111,11 @@ struct HomeView: View {
     
     @ViewBuilder
     private func searchView() -> some View {
-        TextField("Search", text: $searchText, onEditingChanged: { isEditing in
-            if isEditing {
-                startSearch()
-            } else {
-            }
-        })
-        .padding()
-        .frame(height: 60)
-        .background(Color.gray.opacity(0.2))
-        .cornerRadius(8)
-    }
-    
-    private func startSearch() {
-        print("searchText---\(searchText)")
-        let locationId = Config.shared.coreMLIds[searchText] ?? ""
-        //
-        //        guard let locationId = Config.shared.coreMLIds.first(where: { $0.value == searchText })?.value else {
-        //            return
-        //        }
-        print("locationId--\(locationId)")
-        Task {
-            isShowCoreMLModel = true
-            await viewModel.searchLocation(locationId: locationId)
-            
-        }
+        TextField("Search", text: $sharedData.textValue)
+            .padding()
+            .frame(height: 60)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
     }
     
     @ViewBuilder
@@ -146,7 +140,7 @@ struct HomeView: View {
     private func locationCardsView() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 12) {
-                ForEach(viewModel.nearbyLocationDetails) { model in
+                ForEach(viewModel.nearbyLocationDetails.filter { !$0.photos.data.isEmpty }) { model in
                     LocationCardView(locationModel: model)
                         .onTapGesture {
                             viewModel.selectedLocation = model

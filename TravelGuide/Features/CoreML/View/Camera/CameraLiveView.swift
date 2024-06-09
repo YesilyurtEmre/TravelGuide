@@ -10,6 +10,8 @@ import AVKit
 
 struct CameraLiveView: View {
     @ObservedObject var viewModel: CameraLiveViewModel
+    @EnvironmentObject var sharedData: SharedData
+    @Binding var tabSelection: Int
 
     var body: some View {
         VStack {
@@ -24,9 +26,7 @@ struct CameraLiveView: View {
                     .transition(.scale)
                     .animation(.default)
             }
-            CameraOverlayView(
-                label: viewModel.label
-            )
+            CameraOverlayView(tabSelection: $tabSelection, label: viewModel.label)
             .frame(maxWidth: .infinity)
             .frame(height: UIScreen.main.bounds.height * 0.1) // Textler ekranın %10'unda yer alsın
 

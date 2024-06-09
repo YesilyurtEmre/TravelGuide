@@ -44,9 +44,8 @@ final class HomeViewModel: ObservableObject {
             await searchLocation(locationId: locationId)
         }
         
-        // Listen to changes in userCity and update locationId accordingly
         locationPermissionViewModel.$userCity
-            .dropFirst() // Skip the initial value
+            .dropFirst()
             .sink { [weak self] newCity in
                 guard let self = self, let newCity = newCity else { return }
                 self.locationId = Config.shared.placesIds[newCity] ?? ""
@@ -62,52 +61,60 @@ final class HomeViewModel: ObservableObject {
     
     func searchLocation(locationId: String) async {
         isLoading = true
+        
         do {
-            locationDetail = try await LocationService().fetchLocationDetails(locationId: locationId)
-            locationPhotos = try await LocationService().fetcLocationPhotos(locationId: locationId)
+            async let fetchedLocationDetail = LocationService().fetchLocationDetails(locationId: locationId)
+            async let fetchedLocationPhotos = LocationService().fetcLocationPhotos(locationId: locationId)
             
-            if let locationDetail = locationDetail {
-                let nearbyLocationsResponse: NearbyLocationResponse = try await LocationService().fetcNearbyLocation(lat: locationDetail.latitude, long: locationDetail.longitude)
-                
-                var tempNearbyLocationDetails: [NearbyLocationDetail] = []
-                
-                for nearbyLocation in nearbyLocationsResponse.data {
-                    do {
-                        let fetchedDetail = try await LocationService().fetchLocationDetails(locationId: nearbyLocation.locationID)
-                        print("Fetched details for location \(nearbyLocation.locationID): \(fetchedDetail)")
-                        let fetchedPhotos = try await LocationService().fetcLocationPhotos(locationId: nearbyLocation.locationID)
-                        print("Fetched photos for location \(nearbyLocation.locationID): \(fetchedPhotos)")
-                        
-                        let nearbyLocationDetail = NearbyLocationDetail(details: fetchedDetail, photos: fetchedPhotos)
-                        tempNearbyLocationDetails.append(nearbyLocationDetail)
-                        
-                        // İstekler arasında gecikme ekleyin
-                        try await Task.sleep(nanoseconds: 200_000_000)
-                    } catch APIError.invalidURL {
-                        print("Invalid URL for location: \(nearbyLocation.locationID)")
-                    } catch APIError.invalidResponse {
-                        print("Invalid response for location \(nearbyLocation.locationID).")
-                    } catch APIError.invalidData {
-                        print("Invalid data for location \(nearbyLocation.locationID).")
-                    } catch {
-                        print("Unknown error for location: \(nearbyLocation.locationID), error: \(error)")
-                    }
+            let (locationDetail, locationPhotos) = try await (fetchedLocationDetail, fetchedLocationPhotos)
+            
+            self.locationDetail = locationDetail
+            self.locationPhotos = locationPhotos
+            
+            let nearbyLocationsResponse: NearbyLocationResponse = try await LocationService().fetcNearbyLocation(lat: locationDetail.latitude, long: locationDetail.longitude)
+            
+            var tempNearbyLocationDetails: [NearbyLocationDetail] = []
+            
+            for nearbyLocation in nearbyLocationsResponse.data {
+                do {
+                    async let fetchedDetail = LocationService().fetchLocationDetails(locationId: nearbyLocation.locationID)
+                    async let fetchedPhotos = LocationService().fetcLocationPhotos(locationId: nearbyLocation.locationID)
+                    
+                    let (details, photos) = try await (fetchedDetail, fetchedPhotos)
+                    
+                    print("Fetched details for location \(nearbyLocation.locationID): \(details)")
+                    print("Fetched photos for location \(nearbyLocation.locationID): \(photos)")
+                    
+                    let nearbyLocationDetail = NearbyLocationDetail(details: details, photos: photos)
+                    tempNearbyLocationDetails.append(nearbyLocationDetail)
+                    
+                    try await Task.sleep(nanoseconds: 200_000_000)
+                } catch APIError.invalidURL {
+                    print("Invalid URL for location: \(nearbyLocation.locationID)")
+                } catch APIError.invalidResponse {
+                    print("Invalid response for location \(nearbyLocation.locationID).")
+                } catch APIError.invalidData {
+                    print("Invalid data for location \(nearbyLocation.locationID).")
+                } catch {
+                    print("Unknown error for location: \(nearbyLocation.locationID), error: \(error)")
                 }
-                nearbyLocationDetails = tempNearbyLocationDetails
-                
-            } else {
-                alertItem = AlertContext.invalidData
             }
+            
+            nearbyLocationDetails = tempNearbyLocationDetails
+            isLoading = false
             
         } catch APIError.invalidURL {
             alertItem = AlertContext.invalidURL
+            isLoading = false
         } catch APIError.invalidResponse {
             alertItem = AlertContext.invalidResponse
+            isLoading = false
         } catch APIError.invalidData {
             alertItem = AlertContext.invalidData
+            isLoading = false
         } catch {
             alertItem = AlertContext.unableToComplete
+            isLoading = false
         }
-        isLoading = false
     }
 }
