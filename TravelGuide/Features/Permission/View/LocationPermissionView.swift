@@ -25,7 +25,7 @@ struct LocationPermissionView: View {
             }) {
                 Text("Allow Location")
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.appColor)
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
